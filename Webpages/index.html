@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #8860D0, #b49fdc, #dad1ec, #C1C8E4, #8860D0);
+            background: linear-gradient(135deg,  #28846b,  #8bc6b7,  #8fe3cc,  #8fc7b8,  #aaccc3);
             background-size: 400% 400%;
             animation: gradient 4s ease infinite;
             display: flex;
@@ -24,13 +24,16 @@
         }
 
         .container {
-            background-color: #8f76be;
+            background-color: #28846b;
             padding: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             width: 100%;
             max-width: 400px;
             text-align: center;
+        }
+        .container img{
+            height: 120px;
         }
 
         .header h1 {
@@ -64,7 +67,7 @@
             width: 100%;
             padding: 15px;
             border: none;
-            background-color: #b7a2dd;
+            background-color: #5cad98;
             color: white;
             cursor: pointer;
             border-radius: 5px;
@@ -72,7 +75,7 @@
         }
 
         .form-actions button:hover {
-            background-color: #9b79db;
+            background-color: #55a691;
         }
 
         .toggle-link {
@@ -86,12 +89,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Kode</h1>
+            <img src="kode o quest_transparent2.jpg" alt="Logo">
+            
         </div>
         <div id="forms">
             <!-- Login Form -->
             <div id="login-form" class="form-group">
-                <h2>Login</h2>
+                <center><h2>Login</h2></center>
                 <form action="/login" method="POST">
                     <div class="form-group">
                         <label for="login-email">Email:</label>
@@ -110,7 +114,7 @@
 
             <!-- Sign-Up Form Step 1 -->
             <div id="signup-form-step1" class="form-group" style="display: none;">
-                <h2>Sign Up - Step 1</h2>
+                <center><h2>Create Your Profile</h2></center>
                 <form id="signup-form-step1-form" action="javascript:void(0);">
                     <div class="form-group">
                         <label for="signup-name">Name:</label>
@@ -137,7 +141,7 @@
 
             <!-- Sign-Up Form Step 2 -->
             <div id="signup-form-step2" class="form-group" style="display: none;">
-                <h2>Sign Up - Step 2</h2>
+                
                 <form action="/signup" method="POST">
                     <div class="form-group">
                         <label for="signup-username">Username:</label>
@@ -155,7 +159,7 @@
                         <button type="submit">Sign Up</button>
                     </div>
                 </form>
-                <span class="toggle-link" onclick="showStep1()">Back to Step 1</span>
+                <span class="toggle-link" onclick="showStep1()">Back</span>
             </div>
         </div>
     </div>
