@@ -48,7 +48,7 @@
             margin-bottom: 5px;
         }
 
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
@@ -86,7 +86,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>CodeFreaks</h1>
+            <h1>Kode</h1>
         </div>
         <div id="forms">
             <!-- Login Form -->
@@ -108,9 +108,36 @@
                 <span class="toggle-link" onclick="toggleForms()">Don't have an account? Sign Up</span>
             </div>
 
-            <!-- Sign-Up Form -->
-            <div id="signup-form" class="form-group" style="display: none;">
-                <h2>Sign Up</h2>
+            <!-- Sign-Up Form Step 1 -->
+            <div id="signup-form-step1" class="form-group" style="display: none;">
+                <h2>Sign Up - Step 1</h2>
+                <form id="signup-form-step1-form" action="javascript:void(0);">
+                    <div class="form-group">
+                        <label for="signup-name">Name:</label>
+                        <input type="text" id="signup-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-age">Age:</label>
+                        <input type="number" id="signup-age" name="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-education">Education Level:</label>
+                        <select id="signup-education" name="education" required>
+                            <option value="school">School</option>
+                            <option value="high-school">High School</option>
+                            <option value="graduate">Graduate</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" onclick="showStep2()">Next</button>
+                    </div>
+                </form>
+                <span class="toggle-link" onclick="toggleForms()">Already have an account? Login</span>
+            </div>
+
+            <!-- Sign-Up Form Step 2 -->
+            <div id="signup-form-step2" class="form-group" style="display: none;">
+                <h2>Sign Up - Step 2</h2>
                 <form action="/signup" method="POST">
                     <div class="form-group">
                         <label for="signup-username">Username:</label>
@@ -128,21 +155,41 @@
                         <button type="submit">Sign Up</button>
                     </div>
                 </form>
-                <span class="toggle-link" onclick="toggleForms()">Already have an account? Login</span>
+                <span class="toggle-link" onclick="showStep1()">Back to Step 1</span>
             </div>
         </div>
     </div>
     <script>
         function toggleForms() {
             const loginForm = document.getElementById('login-form');
-            const signupForm = document.getElementById('signup-form');
+            const signupFormStep1 = document.getElementById('signup-form-step1');
+            const signupFormStep2 = document.getElementById('signup-form-step2');
+
             if (loginForm.style.display === 'none') {
                 loginForm.style.display = 'block';
-                signupForm.style.display = 'none';
+                signupFormStep1.style.display = 'none';
+                signupFormStep2.style.display = 'none';
             } else {
                 loginForm.style.display = 'none';
-                signupForm.style.display = 'block';
+                signupFormStep1.style.display = 'block';
+                signupFormStep2.style.display = 'none';
             }
+        }
+
+        function showStep2() {
+            const signupFormStep1 = document.getElementById('signup-form-step1');
+            const signupFormStep2 = document.getElementById('signup-form-step2');
+
+            signupFormStep1.style.display = 'none';
+            signupFormStep2.style.display = 'block';
+        }
+
+        function showStep1() {
+            const signupFormStep1 = document.getElementById('signup-form-step1');
+            const signupFormStep2 = document.getElementById('signup-form-step2');
+
+            signupFormStep1.style.display = 'block';
+            signupFormStep2.style.display = 'none';
         }
     </script>
 </body>
