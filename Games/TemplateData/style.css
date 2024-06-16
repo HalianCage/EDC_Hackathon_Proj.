@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  overflow: hidden; /* Prevent scrolling */
 }
 
 #unity-container {
@@ -20,6 +21,7 @@ body {
 
 #unity-canvas {
   background: #231F20;
+  display: block;
 }
 
 .unity-mobile #unity-canvas {
@@ -89,7 +91,7 @@ body {
   position: absolute;
   left: 50%;
   top: 5%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   background: white;
   padding: 10px;
   display: none;
