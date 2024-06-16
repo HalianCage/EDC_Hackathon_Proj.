@@ -10,7 +10,7 @@
 </head>
 <body>
   <div id="unity-container" class="unity-desktop">
-    <canvas id="unity-canvas" width="960" height="600"></canvas>
+    <canvas id="unity-canvas"></canvas>
     <div id="unity-loading-bar">
       <div id="unity-logo"></div>
       <div id="unity-progress-bar-empty"></div>
@@ -68,8 +68,8 @@
       config.devicePixelRatio = 1;
       unityShowBanner('WebGL builds are not supported on mobile devices.');
     } else {
-      canvas.style.width = "960px";
-      canvas.style.height = "600px";
+      canvas.width = window.innerWidth; // Set canvas size to window dimensions
+      canvas.height = window.innerHeight;
     }
 
     loadingBar.style.display = "block";
@@ -82,7 +82,7 @@
       }).then(function(unityInstance) {
         loadingBar.style.display = "none";
         fullscreenButton.onclick = function() {
-          unityInstance.SetFullscreen(1);
+          unityInstance.SetFullscreen(1); // Request fullscreen on button click
         };
       }).catch(function(message) {
         alert(message);
